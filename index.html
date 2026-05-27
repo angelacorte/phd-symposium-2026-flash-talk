@@ -17,7 +17,7 @@
             <!-- HEADER -->
             <header class="poster-header reveal">
                 <div class="header-title">
-                    <h1>Advances in Collective Robotics Through Macro-Programming</h1>
+                    <h1>Towards Collective Operating Systems</h1>
                     <div class="author-info">
                         <div class="author-copy">
                             <div>Angela Cortecchia</div>
@@ -34,56 +34,118 @@
             <!-- 3-COLUMN CONTENT GRID -->
             <div class="poster-content">
 
-                <!-- COLUMN 1: The Problem -->
+                <!-- COLUMN 1: The Vision -->
                 <div class="column reveal delay-1">
                     <div class="section">
-                        <h3>TODO</h3>
-                        <p>Lorem ipsum</p>
-                        <p>todo</p>
+                        <h3>The Vision</h3>
+                        <p><strong>Collective Adaptive Systems</strong> are made of many devices that sense, compute, and act together toward a shared goal.</p>
+                        <p>My starting question is: can we manage them as a single programmable system?</p>
                         <ul>
-                            <li>todo.</li>
-                            <li>todo.</li>
+                            <li>multiple collective processes running over space and time;</li>
+                            <li>shared resources, roles, permissions, and signals;</li>
+                            <li>coordination that survives failures, mobility, and network changes.</li>
                         </ul>
+                    </div>
+
+                    <div class="figure-group">
+                        <figure>
+                            <img src="images/uc-sven.png" alt="Distributed devices around the world">
+                            <figcaption>Many devices</figcaption>
+                        </figure>
+                        <div class="figure-transition" aria-hidden="true">
+                            <svg viewBox="0 0 36 24" role="presentation" focusable="false" aria-hidden="true">
+                                <path d="M3 12h24m0 0-7-6m7 6-7 6"/>
+                            </svg>
+                        </div>
+                        <figure>
+                            <img src="images/collective.svg" alt="A collective system represented as connected devices">
+                            <figcaption>One collective</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="research-card">
+                        <p>A <strong>Collective Operating System</strong> would be middleware for programming, coordinating, and supervising distributed collectives as if they were one adaptive organism.</p>
                     </div>
                 </div>
 
-                <!-- COLUMN 2: The Model (Centerpiece) -->
+                <!-- COLUMN 2: What Exists Now -->
                 <div class="column reveal delay-2">
                     <div class="section">
-                        <h3>todo</h3>
-                        <p>todo</p>
+                        <h3>Building Blocks</h3>
+                        <p>The PhD so far has been about turning this vision into reusable mechanisms for <strong>programming</strong>, <strong>coordination</strong>, <strong>monitoring</strong>, and <strong>safety</strong>.</p>
                     </div>
 
-
-                    <div class="section">
-                        <p> todo </p>
+                    <div class="contribution-grid">
+                        <div class="contribution-card">
+                            <span>Programming</span>
+                            <strong>Collektive</strong>
+                            <p>A Kotlin Multiplatform language to write aggregate programs with a simpler, deployable syntax.</p>
+                        </div>
+                        <div class="contribution-card">
+                            <span>Coordination</span>
+                            <strong>Self-stabilizing gossip</strong>
+                            <p>Consensus that can retract stale values after faults or topology changes.</p>
+                        </div>
+                        <div class="contribution-card">
+                            <span>Monitoring</span>
+                            <strong>Distributed particle filtering</strong>
+                            <p>Field-based estimation for tracking dynamic targets with mobile, heterogeneous observers.</p>
+                        </div>
+                        <div class="contribution-card">
+                            <span>Adaptation</span>
+                            <strong>Runtime replanning</strong>
+                            <p>Robots repair missions online using local fields instead of a central planner.</p>
+                        </div>
                     </div>
 
-<!--                    <div class="highlight-split">-->
+                    <div class="figure-group is-short">
+                        <figure>
+                            <img class="media-zoom is-left" src="images/drones_avoiding_cropped.png" alt="Drones avoiding an obstacle while preserving formation">
+                            <figcaption>Safety</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="images/replanning.gif" alt="Runtime replanning animation">
+                            <figcaption>Replanning</figcaption>
+                        </figure>
+                    </div>
 
-
-<!--                        <div class="highlight-card">-->
-<!--                            <p>todo.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="highlight-card">
+                        <p><strong>CLF/CBF barriers</strong> add a missing ingredient: not only eventual convergence, but guarantees during the transient behavior of the collective.</p>
+                    </div>
                 </div>
 
-                <!-- COLUMN 3: Outcomes & Realities -->
-                <div class="column reveal delay-3">
+                <!-- COLUMN 3: The Road Ahead -->
+                <div class="column is-roadmap reveal delay-3">
                     <div class="section">
-                        <h3>todo</h3>
-                        <p>todo</p>
+                        <h3>How Far From COS?</h3>
+                        <p>We have primitives, but a real Collective Operating System needs a runtime model that composes them.</p>
                         <ul>
-                            <li>Ttodo</li>
-                            <li>todo</li>
+                            <li><strong>Processes:</strong> lifecycle, spatial scope, signals, and interaction.</li>
+                            <li><strong>Contracts:</strong> compose convergence, monitoring, and safety guarantees.</li>
+                            <li><strong>Runtime:</strong> permissions, resources, and heterogeneous deployment.</li>
+                            <li><strong>Validation:</strong> stress the stack on robots, smart spaces, and real disturbances.</li>
                         </ul>
                     </div>
 
+                    <div class="roadmap">
+                        <div>
+                            <span>Now</span>
+                            <p>Reusable mechanisms</p>
+                        </div>
+                        <div>
+                            <span>Next</span>
+                            <p>Runtime composition</p>
+                        </div>
+                        <div>
+                            <span>Goal</span>
+                            <p>Operate collectives</p>
+                        </div>
+                    </div>
 
-<!--                    <div class="summary-box reveal delay-4">-->
-<!--                        <h3>Impact</h3>-->
-<!--                        <p>todo</p>-->
-<!--                    </div>-->
+                    <div class="summary-box reveal delay-4">
+                        <h3>Takeaway</h3>
+                        <p>Move from writing collective behavior to <strong>operating</strong> collective systems: programmable, adaptive, observable, and safe.</p>
+                    </div>
                 </div>
             </div>
         </div>
