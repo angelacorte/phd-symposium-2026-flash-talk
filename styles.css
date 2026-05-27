@@ -77,6 +77,11 @@ h3 {
     text-transform: uppercase;
 }
 
+strong {
+    color: var(--heading-primary);
+    font-weight: 800;
+}
+
 /* Slide frame */
 .slide-wrapper {
     container-name: poster;
@@ -200,6 +205,10 @@ h3 {
     padding-right: 0;
 }
 
+.column.is-roadmap {
+    gap: 0.75rem;
+}
+
 .section {
     display: flex;
     flex-direction: column;
@@ -216,6 +225,10 @@ h3 {
     min-height: 0;
 }
 
+.figure-group.is-short {
+    flex: 0 1 10rem;
+}
+
 .figure-group figure {
     background: var(--bg-panel);
     border: 1px solid var(--grid-line);
@@ -227,6 +240,7 @@ h3 {
     margin: 0;
     min-height: 0;
     min-width: 0;
+    overflow: hidden;
     padding: 0.75rem;
 }
 
@@ -236,6 +250,18 @@ h3 {
     min-height: 0;
     object-fit: contain;
     width: 100%;
+}
+
+.figure-group img[src$=".svg"] {
+    max-height: 100%;
+}
+
+.figure-group img.media-zoom {
+    transform: scale(1.8);
+}
+
+.figure-group img.media-zoom.is-left {
+    transform-origin: 33% 50%;
 }
 
 .figure-group video.square-media {
@@ -295,6 +321,44 @@ h3 {
     padding: 0.85rem 0.95rem;
 }
 
+.contribution-grid {
+    display: grid;
+    gap: 0.55rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contribution-card {
+    background: #ffffff;
+    border-left: 4px solid var(--accent-dark);
+    border-radius: 0.35rem;
+    padding: 0.6rem 0.65rem;
+}
+
+.contribution-card span,
+.roadmap span {
+    color: var(--accent-muted);
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--small-size);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    margin-bottom: 0.28rem;
+    text-transform: uppercase;
+}
+
+.contribution-card strong {
+    display: block;
+    font-size: clamp(0.76rem, 0.95cqi, 0.95rem);
+    line-height: 1.15;
+    margin-bottom: 0.28rem;
+}
+
+.contribution-card p {
+    font-size: clamp(0.68rem, 0.82cqi, 0.82rem);
+    line-height: 1.28;
+}
+
 .highlight-card p {
     border-left: 3px solid var(--accent);
     color: var(--text-primary);
@@ -351,12 +415,54 @@ h3 {
     margin: 0;
 }
 
+.roadmap {
+    display: grid;
+    gap: 0.45rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.roadmap div {
+    background: var(--bg-panel);
+    border-left: 4px solid var(--accent);
+    border-radius: 0.35rem;
+    padding: 0.5rem 0.45rem;
+}
+
+.roadmap div:nth-child(2) {
+    border-left-color: var(--success-border);
+}
+
+.roadmap div:nth-child(3) {
+    border-left-color: var(--danger);
+}
+
+.roadmap p {
+    color: var(--text-primary);
+    font-size: clamp(0.66rem, 0.82cqi, 0.82rem);
+    font-weight: 700;
+    line-height: 1.22;
+}
+
 .summary-box {
     background-color: var(--heading-primary);
     color: var(--bg-primary);
     flex-shrink: 0;
     margin-top: auto;
     padding: clamp(0.75rem, 1.2cqi, 1.5rem);
+}
+
+.column.is-roadmap .summary-box {
+    padding: 0.75rem 0.85rem;
+}
+
+.column.is-roadmap .summary-box h3 {
+    font-size: clamp(1rem, 1.35cqi, 1.35rem);
+    padding-bottom: 0.4rem;
+}
+
+.column.is-roadmap .summary-box p {
+    font-size: clamp(0.72rem, 0.9cqi, 0.9rem);
+    line-height: 1.3;
 }
 
 .summary-box h3 {
@@ -367,6 +473,10 @@ h3 {
 .summary-box p {
     color: var(--bg-secondary);
     padding-top: 0.65rem;
+}
+
+.summary-box strong {
+    color: var(--bg-primary);
 }
 
 /* Animation */
