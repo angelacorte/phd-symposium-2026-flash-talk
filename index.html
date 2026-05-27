@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ph.D. Flash Talk: Angela Cortecchia</title>
+
+    <!-- Fonts: Archivo for bold display, Satoshi for clean body text -->
+    <link href="https://api.fontshare.com/v2/css?f[]=archivo@800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="slide-wrapper">
+    <section class="slide">
+        <div class="poster-container">
+
+            <!-- HEADER -->
+            <header class="poster-header reveal">
+                <div class="header-title">
+                    <h1>Advances in Collective Robotics Through Macro-Programming</h1>
+                    <div class="author-info">
+                        <div class="author-copy">
+                            <div>Angela Cortecchia</div>
+<!--                            <a href="https://dblp.org/pid/381/5304.html" target="_blank" rel="noreferrer">dblp.org/pid/381/5304</a>-->
+                            <a href="mailto:angela.cortecchia@unibo.it">angela.cortecchia@unibo.it</a>
+                        </div>
+<!--                        <a class="author-qr" href="https://github.com/angelacorte" target="_blank" rel="noreferrer" aria-label="GitHub profile for angelacorte">-->
+<!--                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgithub.com%2Fangelacorte" alt="QR code to GitHub profile for angelacorte">-->
+<!--                        </a>-->
+                    </div>
+                </div>
+            </header>
+
+            <!-- 3-COLUMN CONTENT GRID -->
+            <div class="poster-content">
+
+                <!-- COLUMN 1: The Problem -->
+                <div class="column reveal delay-1">
+                    <div class="section">
+                        <h3>TODO</h3>
+                        <p>Lorem ipsum</p>
+                        <p>todo</p>
+                        <ul>
+                            <li>todo.</li>
+                            <li>todo.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: The Model (Centerpiece) -->
+                <div class="column reveal delay-2">
+                    <div class="section">
+                        <h3>todo</h3>
+                        <p>todo</p>
+                    </div>
+
+
+                    <div class="section">
+                        <p> todo </p>
+                    </div>
+
+<!--                    <div class="highlight-split">-->
+
+
+<!--                        <div class="highlight-card">-->
+<!--                            <p>todo.</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+
+                <!-- COLUMN 3: Outcomes & Realities -->
+                <div class="column reveal delay-3">
+                    <div class="section">
+                        <h3>todo</h3>
+                        <p>todo</p>
+                        <ul>
+                            <li>Ttodo</li>
+                            <li>todo</li>
+                        </ul>
+                    </div>
+
+
+<!--                    <div class="summary-box reveal delay-4">-->
+<!--                        <h3>Impact</h3>-->
+<!--                        <p>todo</p>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    document.querySelectorAll('video[data-start][data-end]').forEach((video) => {
+        const start = Number(video.dataset.start);
+        const end = Number(video.dataset.end);
+
+        video.addEventListener('loadedmetadata', () => {
+            if (Number.isFinite(start)) {
+                video.currentTime = start;
+            }
+            video.play().catch(() => {});
+        });
+
+        video.addEventListener('timeupdate', () => {
+            if (Number.isFinite(start) && Number.isFinite(end) && video.currentTime >= end) {
+                video.currentTime = start;
+                video.play();
+            }
+        });
+    });
+</script>
+</body>
+</html>
