@@ -28,7 +28,7 @@
     --small-size: clamp(0.65rem, 0.85cqi, 0.85rem);
 
     --slide-padding: clamp(1.5rem, 2.5cqi, 3rem);
-    --content-gap: clamp(1rem, 1.5cqi, 1.5rem);
+    --content-gap: clamp(0.85rem, 1.1cqi, 1.15rem);
 
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --duration: 0.8s;
@@ -195,6 +195,7 @@ strong {
     display: flex;
     flex-direction: column;
     gap: var(--content-gap);
+    justify-content: stretch;
     min-height: 0;
     min-width: 0;
     padding-right: var(--content-gap);
@@ -206,7 +207,30 @@ strong {
 }
 
 .column.is-roadmap {
+    gap: 0.9rem;
+}
+
+.column.is-vision,
+.column.is-building {
+    gap: 1rem;
+}
+
+.column.is-vision {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-rows: auto auto auto;
+}
+
+.column.is-building {
+    display: grid;
     gap: 0.75rem;
+    grid-template-rows: auto auto auto;
+}
+
+.column.is-roadmap {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-rows: auto 4rem minmax(6rem, 1fr) minmax(4.8rem, 0.85fr);
 }
 
 .section {
@@ -214,6 +238,27 @@ strong {
     flex-direction: column;
     flex-shrink: 0;
     gap: clamp(0.5rem, 1cqi, 1rem);
+}
+
+.column.is-vision .section {
+    gap: 0.55rem;
+}
+
+.column.is-roadmap .section {
+    gap: 0.55rem;
+}
+
+.column.is-vision p,
+.column.is-vision li,
+.column.is-roadmap p,
+.column.is-roadmap li {
+    font-size: clamp(0.72rem, 0.96cqi, 0.96rem);
+    line-height: 1.35;
+}
+
+.column.is-vision ul,
+.column.is-roadmap ul {
+    gap: 0.28rem;
 }
 
 /* Figures and media */
@@ -227,6 +272,38 @@ strong {
 
 .figure-group.is-short {
     flex: 0 1 10rem;
+}
+
+.figure-flow {
+    align-items: center;
+    display: grid;
+    gap: clamp(0.35rem, 0.7cqi, 0.75rem);
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    min-height: 0;
+    align-self: start;
+}
+
+.figure-flow figure {
+    align-self: stretch;
+    background: var(--bg-panel);
+    border: 1px solid var(--grid-line);
+    border-radius: 0.35rem;
+    display: grid;
+    gap: 0.45rem;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    margin: 0;
+    min-width: 0;
+    overflow: hidden;
+    padding: 0.75rem;
+}
+
+.figure-flow img {
+    display: block;
+    height: auto;
+    max-height: clamp(12rem, 24cqi, 22rem);
+    object-fit: contain;
+    width: 100%;
 }
 
 .figure-group figure {
@@ -283,6 +360,17 @@ strong {
     text-transform: uppercase;
 }
 
+.figure-flow figcaption {
+    color: var(--accent-dark);
+    font-family: var(--font-display);
+    font-size: var(--small-size);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .figure-transition {
     align-items: center;
     color: var(--accent-bright);
@@ -324,14 +412,19 @@ strong {
 .contribution-grid {
     display: grid;
     gap: 0.55rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .contribution-card {
     background: #ffffff;
     border-left: 4px solid var(--accent-dark);
     border-radius: 0.35rem;
-    padding: 0.6rem 0.65rem;
+    min-height: 4.5rem;
+    padding: 0.56rem 0.6rem;
+}
+
+.contribution-card.is-wide {
+    border-left-color: var(--danger);
 }
 
 .contribution-card span,
@@ -349,14 +442,57 @@ strong {
 
 .contribution-card strong {
     display: block;
-    font-size: clamp(0.76rem, 0.95cqi, 0.95rem);
+    font-size: clamp(0.72rem, 0.9cqi, 0.9rem);
     line-height: 1.15;
-    margin-bottom: 0.28rem;
+    margin-bottom: 0.22rem;
 }
 
 .contribution-card p {
-    font-size: clamp(0.68rem, 0.82cqi, 0.82rem);
+    font-size: clamp(0.6rem, 0.74cqi, 0.74rem);
     line-height: 1.28;
+}
+
+.media-mosaic {
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr);
+    min-height: 0;
+    align-self: start;
+}
+
+.media-mosaic figure {
+    align-self: start;
+    background: var(--bg-panel);
+    border: 1px solid var(--grid-line);
+    border-radius: 0.35rem;
+    display: grid;
+    gap: 0.32rem;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    margin: 0;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0.65rem;
+}
+
+.media-mosaic img {
+    display: block;
+    height: auto;
+    max-height: clamp(8rem, 15cqi, 13.5rem);
+    object-fit: contain;
+    width: 100%;
+}
+
+.media-mosaic figcaption {
+    color: var(--accent-dark);
+    font-family: var(--font-display);
+    font-size: var(--small-size);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .highlight-card p {
@@ -381,6 +517,7 @@ strong {
 
 .research-card {
     align-items: center;
+    align-self: start;
     background: #f8fbf8;
     border: 1px solid rgba(104, 168, 107, 0.35);
     border-radius: 0.35rem;
@@ -388,7 +525,16 @@ strong {
     display: flex;
     flex-shrink: 0;
     gap: 0.9rem;
-    padding: 0.9rem 1rem;
+    padding: 0.45rem 0.6rem;
+}
+
+.column.is-vision .research-card {
+    padding: 0.42rem 0.58rem;
+}
+
+.column.is-vision .research-card p {
+    font-size: clamp(0.72rem, 0.92cqi, 0.92rem);
+    line-height: 1.25;
 }
 
 .research-card-icon {
@@ -443,16 +589,65 @@ strong {
     line-height: 1.22;
 }
 
+.challenge-panel {
+    background: linear-gradient(180deg, rgba(38, 144, 231, 0.10) 0%, rgba(218, 229, 233, 0.95) 100%);
+    border: 1px solid rgba(30, 105, 190, 0.22);
+    border-radius: 0.35rem;
+    padding: 0.6rem 0.72rem;
+}
+
+.challenge-panel > span {
+    color: var(--accent-dark);
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(0.72rem, 0.9cqi, 0.9rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    margin-bottom: 0.32rem;
+    text-transform: uppercase;
+}
+
+.challenge-panel p {
+    color: var(--text-primary);
+    font-size: clamp(0.82rem, 1.02cqi, 1.02rem);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.52rem;
+}
+
+.tag-row span {
+    background: #ffffff;
+    border-left: 3px solid var(--accent);
+    border-radius: 0.25rem;
+    color: var(--heading-primary);
+    font-family: var(--font-display);
+    font-size: var(--small-size);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    padding: 0.28rem 0.36rem;
+    text-transform: uppercase;
+}
+
 .summary-box {
     background-color: var(--heading-primary);
     color: var(--bg-primary);
-    flex-shrink: 0;
-    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
     padding: clamp(0.75rem, 1.2cqi, 1.5rem);
 }
 
 .column.is-roadmap .summary-box {
-    padding: 0.75rem 0.85rem;
+    padding: 0.62rem 0.75rem;
 }
 
 .column.is-roadmap .summary-box h3 {
