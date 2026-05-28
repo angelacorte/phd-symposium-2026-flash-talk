@@ -23,9 +23,31 @@
 
     --title-size: clamp(1.45rem, 2.35cqi, 2.35rem);
     --subtitle-size: clamp(1rem, 1.5cqi, 1.5rem);
-    --h3-size: clamp(1.2rem, 1.8cqi, 1.8rem);
-    --body-size: clamp(0.8rem, 1.15cqi, 1.1rem);
-    --small-size: clamp(0.65rem, 0.85cqi, 0.85rem);
+    --h3-size: clamp(1.28rem, 1.9cqi, 1.9rem);
+    --body-size: clamp(0.86rem, 1.22cqi, 1.18rem);
+    --small-size: clamp(0.8rem, 0.92cqi, 1.1rem);
+
+    /* Side columns typography */
+    --side-body-size: clamp(0.84rem, 1.35cqi, 1.08rem);
+    --side-body-line-height: 1.42;
+    --side-callout-size: clamp(0.84rem, 1.3cqi, 1.05rem);
+    --side-callout-line-height: 1.35;
+
+    /* Central cards typography */
+    --card-label-size: clamp(0.8rem, 1.82cqi, 1.4rem);
+    --card-title-size: clamp(0.8rem, 1.82cqi, 1.2rem);
+    --card-body-size: clamp(0.8rem, 1.82cqi, 1rem);
+    --card-body-line-height: 1.5;
+
+    /* Right column typography */
+    --roadmap-body-size: clamp(0.84rem, 1.3cqi, 1.08rem);
+    --roadmap-body-line-height: 1.28;
+    --panel-title-size: clamp(0.88rem, 1.35cqi, 1.08rem);
+    --panel-body-size: clamp(0.86rem, 1.32cqi, 1.08rem);
+    --panel-body-line-height: 1.38;
+    --tag-size: clamp(0.62rem, 0.78cqi, 0.78rem);
+    --summary-body-size: clamp(0.84rem, 1.25cqi, 1.05rem);
+    --summary-body-line-height: 1.36;
 
     --slide-padding: clamp(1.5rem, 2.5cqi, 3rem);
     --content-gap: clamp(0.85rem, 1.1cqi, 1.15rem);
@@ -206,31 +228,24 @@ strong {
     padding-right: 0;
 }
 
-.column.is-roadmap {
-    gap: 0.9rem;
-}
-
-.column.is-vision,
-.column.is-building {
-    gap: 1rem;
-}
-
 .column.is-vision {
+    align-content: start;
     display: grid;
-    gap: 0.8rem;
+    gap: 0.65rem;
     grid-template-rows: auto auto auto;
 }
 
 .column.is-building {
+    align-content: start;
     display: grid;
-    gap: 0.75rem;
+    gap: 0.55rem;
     grid-template-rows: auto auto auto;
 }
 
 .column.is-roadmap {
     display: grid;
-    gap: 0.5rem;
-    grid-template-rows: auto 4rem minmax(6rem, 1fr) minmax(4.8rem, 0.85fr);
+    gap: 0.62rem;
+    grid-template-rows: auto auto auto minmax(4.8rem, 0.85fr);
 }
 
 .section {
@@ -240,10 +255,7 @@ strong {
     gap: clamp(0.5rem, 1cqi, 1rem);
 }
 
-.column.is-vision .section {
-    gap: 0.55rem;
-}
-
+.column.is-vision .section,
 .column.is-roadmap .section {
     gap: 0.55rem;
 }
@@ -252,8 +264,8 @@ strong {
 .column.is-vision li,
 .column.is-roadmap p,
 .column.is-roadmap li {
-    font-size: clamp(0.72rem, 0.96cqi, 0.96rem);
-    line-height: 1.35;
+    font-size: var(--side-body-size);
+    line-height: var(--side-body-line-height);
 }
 
 .column.is-vision ul,
@@ -276,11 +288,11 @@ strong {
 
 .figure-flow {
     align-items: center;
+    align-self: start;
     display: grid;
     gap: clamp(0.35rem, 0.7cqi, 0.75rem);
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     min-height: 0;
-    align-self: start;
 }
 
 .figure-flow figure {
@@ -329,7 +341,7 @@ strong {
     width: 100%;
 }
 
-.figure-group img[src$=".svg"] {
+.figure-group img[src$='.svg'] {
     max-height: 100%;
 }
 
@@ -351,15 +363,7 @@ strong {
     width: 100%;
 }
 
-.figure-group figcaption {
-    color: var(--accent-dark);
-    font-family: var(--font-display);
-    font-size: var(--small-size);
-    letter-spacing: 0.08em;
-    text-align: center;
-    text-transform: uppercase;
-}
-
+.figure-group figcaption,
 .figure-flow figcaption {
     color: var(--accent-dark);
     font-family: var(--font-display);
@@ -409,92 +413,6 @@ strong {
     padding: 0.85rem 0.95rem;
 }
 
-.contribution-grid {
-    display: grid;
-    gap: 0.55rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.contribution-card {
-    background: #ffffff;
-    border-left: 4px solid var(--accent-dark);
-    border-radius: 0.35rem;
-    min-height: 4.5rem;
-    padding: 0.56rem 0.6rem;
-}
-
-.contribution-card.is-wide {
-    border-left-color: var(--danger);
-}
-
-.contribution-card span,
-.roadmap span {
-    color: var(--accent-muted);
-    display: block;
-    font-family: var(--font-display);
-    font-size: var(--small-size);
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    line-height: 1;
-    margin-bottom: 0.28rem;
-    text-transform: uppercase;
-}
-
-.contribution-card strong {
-    display: block;
-    font-size: clamp(0.72rem, 0.9cqi, 0.9rem);
-    line-height: 1.15;
-    margin-bottom: 0.22rem;
-}
-
-.contribution-card p {
-    font-size: clamp(0.6rem, 0.74cqi, 0.74rem);
-    line-height: 1.28;
-}
-
-.media-mosaic {
-    display: grid;
-    gap: 0.7rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: minmax(0, 1fr);
-    min-height: 0;
-    align-self: start;
-}
-
-.media-mosaic figure {
-    align-self: start;
-    background: var(--bg-panel);
-    border: 1px solid var(--grid-line);
-    border-radius: 0.35rem;
-    display: grid;
-    gap: 0.32rem;
-    grid-template-rows: auto auto;
-    justify-content: center;
-    margin: 0;
-    min-height: 0;
-    overflow: hidden;
-    padding: 0.65rem;
-}
-
-.media-mosaic img {
-    display: block;
-    height: auto;
-    max-height: clamp(8rem, 15cqi, 13.5rem);
-    object-fit: contain;
-    width: 100%;
-}
-
-.media-mosaic figcaption {
-    color: var(--accent-dark);
-    font-family: var(--font-display);
-    font-size: var(--small-size);
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    line-height: 1;
-    text-align: center;
-    text-transform: uppercase;
-}
-
 .highlight-card p {
     border-left: 3px solid var(--accent);
     color: var(--text-primary);
@@ -515,6 +433,140 @@ strong {
     padding: 0 0.2em;
 }
 
+/* Building Blocks */
+.contribution-grid {
+    align-self: start;
+    display: grid;
+    gap: 0.48rem;
+    grid-template-columns: 1fr;
+}
+
+.contribution-card {
+    align-content: start;
+    background: #ffffff;
+    border-left: 4px solid var(--accent-dark);
+    border-radius: 0.35rem;
+    display: grid;
+    gap: 0.16rem;
+    min-height: 0;
+    padding: 0.56rem 0.76rem;
+}
+
+.contribution-card.is-wide,
+.contribution-card.is-safety {
+    border-left-color: var(--danger);
+}
+
+.contribution-card span,
+.roadmap span {
+    color: var(--accent-muted);
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--card-label-size);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    margin-bottom: 0.08rem;
+    text-transform: uppercase;
+}
+
+.contribution-card strong {
+    display: block;
+    font-size: var(--card-title-size);
+    line-height: 1.14;
+    margin-bottom: 0;
+}
+
+.contribution-card p {
+    font-size: var(--card-body-size);
+    line-height: var(--card-body-line-height);
+}
+
+.contribution-card figure {
+    align-self: start;
+    background: var(--bg-panel);
+    border: 1px solid rgba(138, 161, 180, 0.45);
+    border-radius: 0.28rem;
+    display: grid;
+    gap: 0.22rem;
+    grid-template-rows: auto auto;
+    justify-self: stretch;
+    margin: 0.42rem 0 0;
+    max-width: none;
+    overflow: hidden;
+    padding: 0.46rem;
+    width: 100%;
+}
+
+.contribution-card figure img {
+    display: block;
+    height: auto;
+    max-height: clamp(7.5rem, 17cqi, 13.5rem);
+    object-fit: contain;
+    width: 100%;
+}
+
+.contribution-card figure.is-dpf {
+    max-width: none;
+}
+
+.contribution-card figure figcaption {
+    color: var(--accent-dark);
+    font-family: var(--font-display);
+    font-size: clamp(0.58rem, 0.7cqi, 0.7rem);
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Mosaic rows in the central column */
+.media-mosaic {
+    align-items: stretch;
+    align-self: stretch;
+    display: grid;
+    gap: 0.55rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 0;
+    width: 100%;
+}
+
+.media-mosaic figure {
+    align-self: start;
+    background: var(--bg-panel);
+    border: 1px solid var(--grid-line);
+    border-radius: 0.35rem;
+    display: grid;
+    gap: 0.32rem;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    margin: 0;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0.5rem;
+}
+
+.media-mosaic img {
+    display: block;
+    height: auto;
+    max-height: clamp(7rem, 12cqi, 10.5rem);
+    object-fit: contain;
+    width: 100%;
+}
+
+.media-mosaic figcaption {
+    color: var(--accent-dark);
+    font-family: var(--font-display);
+    font-size: var(--small-size);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Vision callout */
 .research-card {
     align-items: center;
     align-self: start;
@@ -533,8 +585,8 @@ strong {
 }
 
 .column.is-vision .research-card p {
-    font-size: clamp(0.72rem, 0.92cqi, 0.92rem);
-    line-height: 1.25;
+    font-size: var(--side-callout-size);
+    line-height: var(--side-callout-line-height);
 }
 
 .research-card-icon {
@@ -561,17 +613,18 @@ strong {
     margin: 0;
 }
 
+/* Roadmap / research direction */
 .roadmap {
     display: grid;
-    gap: 0.45rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
 }
 
 .roadmap div {
     background: var(--bg-panel);
     border-left: 4px solid var(--accent);
     border-radius: 0.35rem;
-    padding: 0.5rem 0.45rem;
+    padding: 0.58rem 0.68rem;
 }
 
 .roadmap div:nth-child(2) {
@@ -584,9 +637,9 @@ strong {
 
 .roadmap p {
     color: var(--text-primary);
-    font-size: clamp(0.66rem, 0.82cqi, 0.82rem);
+    font-size: var(--roadmap-body-size);
     font-weight: 700;
-    line-height: 1.22;
+    line-height: var(--roadmap-body-line-height);
 }
 
 .challenge-panel {
@@ -600,7 +653,7 @@ strong {
     color: var(--accent-dark);
     display: block;
     font-family: var(--font-display);
-    font-size: clamp(0.72rem, 0.9cqi, 0.9rem);
+    font-size: var(--panel-title-size);
     font-weight: 800;
     letter-spacing: 0.08em;
     line-height: 1;
@@ -610,9 +663,9 @@ strong {
 
 .challenge-panel p {
     color: var(--text-primary);
-    font-size: clamp(0.82rem, 1.02cqi, 1.02rem);
+    font-size: var(--panel-body-size);
     font-weight: 600;
-    line-height: 1.3;
+    line-height: var(--panel-body-line-height);
 }
 
 .tag-row {
@@ -628,7 +681,7 @@ strong {
     border-radius: 0.25rem;
     color: var(--heading-primary);
     font-family: var(--font-display);
-    font-size: var(--small-size);
+    font-size: var(--tag-size);
     font-weight: 800;
     letter-spacing: 0.04em;
     line-height: 1;
@@ -656,8 +709,8 @@ strong {
 }
 
 .column.is-roadmap .summary-box p {
-    font-size: clamp(0.72rem, 0.9cqi, 0.9rem);
-    line-height: 1.3;
+    font-size: var(--summary-body-size);
+    line-height: var(--summary-body-line-height);
 }
 
 .summary-box h3 {
