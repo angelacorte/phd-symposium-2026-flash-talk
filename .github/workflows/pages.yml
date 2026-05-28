@@ -2,7 +2,7 @@ name: Deploy static content to Pages and Release PDF
 
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
