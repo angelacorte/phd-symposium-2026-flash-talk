@@ -17,7 +17,7 @@
             <!-- HEADER -->
             <header class="poster-header reveal">
                 <div class="header-title">
-                    <h1>Towards Collective Operating Systems</h1>
+                    <h1>Advances in <span>Collective Robotics</span> Through <i>Macro-Programming</i></h1>
                     <div class="author-info">
                         <div class="author-copy">
                             <div>Angela Cortecchia</div>
@@ -35,21 +35,23 @@
             <div class="poster-content">
 
                 <!-- COLUMN 1: The Vision -->
-                <div class="column reveal delay-1">
+                <div class="column is-vision reveal delay-1">
                     <div class="section">
-                        <h3>The Vision</h3>
-                        <p><strong>Collective Adaptive Systems</strong> are made of many devices that sense, compute, and act together toward a shared goal.</p>
-                        <p>My starting question is: can we manage them as a single programmable system?</p>
+                        <h3>Challenge</h3>
+                        <p><strong>Collective Adaptive Systems</strong> are ensembles of sensors, robots, and services that cooperate while devices move, fail, and join at runtime.</p>
+                        <p><strong>State of the art:</strong> Aggregate Computing offers reusable patterns for collective behavior, but most systems still run as isolated aggregate programs.</p>
+                        <p><strong>Open gap:</strong> there is no runtime layer for managing multiple collective processes as first-class entities.</p>
                         <ul>
-                            <li>multiple collective processes running over space and time;</li>
-                            <li>shared resources, roles, permissions, and signals;</li>
-                            <li>coordination that survives failures, mobility, and network changes.</li>
+                            <li>processes overlap in space and time, but lack lifecycle and ownership;</li>
+                            <li>roles, permissions, signals, and resource flows are application-specific;</li>
+                            <li>monitoring, adaptation, and safety are not yet unified as runtime services;</li>
+                            <li>failures, mobility, and topology changes require managed recovery.</li>
                         </ul>
                     </div>
 
-                    <div class="figure-group">
+                    <div class="figure-flow">
                         <figure>
-                            <img src="images/uc-sven.png" alt="Distributed devices around the world">
+                            <img src="images/uc-sven.svg" alt="Distributed devices around the world">
                             <figcaption>Many devices</figcaption>
                         </figure>
                         <div class="figure-transition" aria-hidden="true">
@@ -64,87 +66,121 @@
                     </div>
 
                     <div class="research-card">
-                        <p>A <strong>Collective Operating System</strong> would be middleware for programming, coordinating, and supervising distributed collectives as if they were one adaptive organism.</p>
+                        <p>A <strong>Collective Operating System</strong> is the missing middleware for running many aggregate processes on shared, heterogeneous devices, with lifecycle, communication, permissions, and resources managed collectively.</p>
                     </div>
                 </div>
 
                 <!-- COLUMN 2: What Exists Now -->
-                <div class="column reveal delay-2">
+                <div class="column is-building reveal delay-2">
                     <div class="section">
                         <h3>Building Blocks</h3>
-                        <p>The PhD so far has been about turning this vision into reusable mechanisms for <strong>programming</strong>, <strong>coordination</strong>, <strong>monitoring</strong>, and <strong>safety</strong>.</p>
+                        <p>Each contribution implements one capability that a Collective OS must expose as a reusable runtime service.</p>
                     </div>
 
                     <div class="contribution-grid">
-                        <div class="contribution-card">
-                            <span>Programming</span>
-                            <strong>Collektive</strong>
-                            <p>A Kotlin Multiplatform language to write aggregate programs with a simpler, deployable syntax.</p>
-                        </div>
-                        <div class="contribution-card">
-                            <span>Coordination</span>
-                            <strong>Self-stabilizing gossip</strong>
-                            <p>Consensus that can retract stale values after faults or topology changes.</p>
-                        </div>
-                        <div class="contribution-card">
-                            <span>Monitoring</span>
-                            <strong>Distributed particle filtering</strong>
-                            <p>Field-based estimation for tracking dynamic targets with mobile, heterogeneous observers.</p>
-                        </div>
-                        <div class="contribution-card">
-                            <span>Adaptation</span>
-                            <strong>Runtime replanning</strong>
-                            <p>Robots repair missions online using local fields instead of a central planner.</p>
-                        </div>
-                    </div>
+                        <div class="media-mosaic">
+                            <div class="contribution-card">
+                                <span>Programming</span>
+                                <strong>Collektive</strong>
+                                <p>Executable aggregate programs across heterogeneous devices: the programming substrate for collective services.</p>
+                                <figure>
+                                    <img src="images/collektive-logo-white-no-background.svg">
+                                </figure>
+                            </div>
 
-                    <div class="figure-group is-short">
-                        <figure>
-                            <img class="media-zoom is-left" src="images/drones_avoiding_cropped.png" alt="Drones avoiding an obstacle while preserving formation">
-                            <figcaption>Safety</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="images/replanning.gif" alt="Runtime replanning animation">
-                            <figcaption>Replanning</figcaption>
-                        </figure>
-                    </div>
+                            <div class="contribution-card">
+                                <span>Coordination</span>
+                                <strong>Self-stabilizing gossip</strong>
+                                <p>Fresh collective state without global resets: obsolete values are pruned after failures and topology changes.</p>
+                            </div>
+                        </div>
+                        <div class="media-mosaic">
+                            <div class="contribution-card">
+                                <span>Morphogenesis</span>
+                                <strong>FieldVMC</strong>
+                                <p>Adaptive resource flows and dynamic hierarchies: a first model of collective resource management.</p>
+                                <figure>
+                                    <img src="images/oneroot.gif">
+    <!--                                <figcaption>Morphogenesis</figcaption>-->
+                                </figure>
+                            </div>
+                            <div class="contribution-card">
+                                <span>Monitoring</span>
+                                <strong>Field-Based Distributed Particle Filtering</strong>
+                                <p>Distributed monitoring service: observers fuse partial, noisy information into runtime estimates.</p>
+                                <figure class="is-dpf">
+                                    <img src="images/three_zebras_by_number_of_neighbors.jpg" alt="Distributed particle filtering estimate with seven neighbors">
+    <!--                                <figcaption>DPF monitoring</figcaption>-->
+                                </figure>
+                            </div>
+                        </div>
 
-                    <div class="highlight-card">
-                        <p><strong>CLF/CBF barriers</strong> add a missing ingredient: not only eventual convergence, but guarantees during the transient behavior of the collective.</p>
+                        <div class="media-mosaic">
+                            <div class="contribution-card">
+                                <span>Adaptation</span>
+                                <strong>Runtime replanning</strong>
+                                <p>Runtime adaptation service: robot teams repair missions after failures, new tasks, or changing conditions.</p>
+                                <figure>
+                                    <img src="images/replanning.gif" alt="Runtime replanning animation">
+    <!--                                <figcaption>Replanning</figcaption>-->
+                                </figure>
+                            </div>
+
+                            <div class="contribution-card is-safety">
+                                <span>Safety</span>
+                                <strong>Control Lyapunov / Barrier Functions</strong>
+                                <p>Safety contract layer: local control constraints keep collective adaptation within safe boundaries.</p>
+                                <figure>
+                                    <img src="images/drones_avoiding_formation.png" alt="Drones avoiding an obstacle while preserving formation">
+    <!--                                <figcaption>Safety</figcaption>-->
+                                </figure>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- COLUMN 3: The Road Ahead -->
                 <div class="column is-roadmap reveal delay-3">
                     <div class="section">
-                        <h3>How Far From COS?</h3>
-                        <p>We have primitives, but a real Collective Operating System needs a runtime model that composes them.</p>
+                        <h3>Research Direction</h3>
+                        <p>The contributions in the middle column are not isolated results: they expose services that should be orchestrated by a common collective runtime.</p>
                         <ul>
-                            <li><strong>Processes:</strong> lifecycle, spatial scope, signals, and interaction.</li>
-                            <li><strong>Contracts:</strong> compose convergence, monitoring, and safety guarantees.</li>
-                            <li><strong>Runtime:</strong> permissions, resources, and heterogeneous deployment.</li>
-                            <li><strong>Validation:</strong> stress the stack on robots, smart spaces, and real disturbances.</li>
+                            <li><strong>Process abstraction:</strong> define collective processes with scope, lifecycle, ownership, and interaction rules.</li>
+                            <li><strong>Runtime substrate:</strong> reuse programming, coordination, monitoring, adaptation, and safety as system services.</li>
+                            <li><strong>Governance model:</strong> decide who can start, stop, signal, compose, or constrain collective processes.</li>
+                            <li><strong>Validation path:</strong> stress the runtime on robot teams and smart environments under failures and mobility.</li>
                         </ul>
                     </div>
 
-                    <div class="roadmap">
+                    <div class="roadmap is-service-map">
                         <div>
-                            <span>Now</span>
-                            <p>Reusable mechanisms</p>
+                            <span>From</span>
+                            <p>Single aggregate programs</p>
                         </div>
                         <div>
-                            <span>Next</span>
-                            <p>Runtime composition</p>
+                            <span>Through</span>
+                            <p>Managed collective processes</p>
                         </div>
                         <div>
-                            <span>Goal</span>
-                            <p>Operate collectives</p>
+                            <span>To</span>
+                            <p>Collective applications as system services</p>
+                        </div>
+                    </div>
+
+                    <div class="challenge-panel">
+                        <span>Runtime Questions</span>
+                        <p>When several collective processes share the same devices, the runtime must govern <strong>membership</strong>, <strong>resources</strong>, <strong>signals</strong>, and <strong>safety constraints</strong>.</p>
+                        <div class="tag-row">
+                            <span>who owns it?</span>
+                            <span>who joins?</span>
+                            <span>who signals?</span>
+                            <span>who gets resources?</span>
                         </div>
                     </div>
 
                     <div class="summary-box reveal delay-4">
                         <h3>Takeaway</h3>
-                        <p>Move from writing collective behavior to <strong>operating</strong> collective systems: programmable, adaptive, observable, and safe.</p>
+                        <p>The thesis goal is a <strong>Collective Operating System</strong>: a runtime that turns field-based algorithms into deployable, observable, governable, and safe collective applications.</p>
                     </div>
                 </div>
             </div>
