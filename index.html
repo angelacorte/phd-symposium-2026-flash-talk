@@ -36,19 +36,32 @@
 
                 <!-- COLUMN 1: The Vision -->
                 <div class="column is-vision reveal delay-1">
-                    <div class="section">
+                    <div class="section challenge-section">
                         <h3>Challenge</h3>
-                        <p><strong>Collective Adaptive Systems</strong> are ensembles of sensors, robots, and services that cooperate while devices move, fail, and join at runtime.</p>
-                        <p><strong>State of the art:</strong> Aggregate Computing offers reusable patterns for collective behavior, but most systems still run as isolated aggregate programs.</p>
-                        <p><strong>Open gap:</strong> there is no runtime layer for managing multiple collective processes as first-class entities.</p>
-                        <ul>
-                            <li>processes overlap in space and time, but lack lifecycle and ownership;</li>
-                            <li>roles, permissions, signals, and resource flows are application-specific;</li>
-                            <li>monitoring, adaptation, and safety are not yet unified as runtime services;</li>
-                            <li>failures, mobility, and topology changes require managed recovery.</li>
-                        </ul>
+                        <div class="challenge-card-stack">
+                            <div class="challenge-card is-context">
+                                <span>Context</span>
+                                <p><strong>Collective Adaptive Systems</strong> are ensembles of sensors, robots, and services that cooperate while devices move, fail, and join at runtime.</p>
+                            </div>
+                            <div class="challenge-card is-sota">
+                                <span>State of the art</span>
+                                <p>Aggregate Computing offers reusable patterns for collective behavior, but most systems still run as isolated aggregate programs.</p>
+                            </div>
+                            <div class="challenge-card is-gap">
+                                <span>Open gap</span>
+                                <p>There is no runtime layer for managing multiple collective processes as first-class entities.</p>
+                            </div>
+                        </div>
+                        <div class="gap-list-card">
+                            <span>What is missing?</span>
+                            <ul>
+                                <li>lifecycle and ownership for overlapping processes;</li>
+                                <li>roles, permissions, signals, and resource flows;</li>
+                                <li>monitoring, adaptation, and safety as runtime services;</li>
+                                <li>managed recovery from failures, mobility, and topology changes.</li>
+                            </ul>
+                        </div>
                     </div>
-
                     <div class="figure-flow">
                         <figure>
                             <img src="images/uc-sven.svg" alt="Distributed devices around the world">
@@ -82,7 +95,7 @@
                             <div class="contribution-card">
                                 <span>Programming</span>
                                 <strong>Collektive</strong>
-                                <p>Executable aggregate programs across heterogeneous devices: the programming substrate for collective services.</p>
+                                <p>Kotlin Multiplatform support for writing and deploying reusable aggregate programs across platforms.</p>
                                 <figure>
                                     <img src="images/collektive-logo-white-no-background.svg">
                                 </figure>
@@ -91,7 +104,7 @@
                             <div class="contribution-card">
                                 <span>Coordination</span>
                                 <strong>Self-stabilizing gossip</strong>
-                                <p>Fresh collective state without global resets: obsolete values are pruned after failures and topology changes.</p>
+                                <p>Fresh consensus values without global resets: stale contributions are pruned after failures and topology changes.</p>
                             </div>
                         </div>
                         <div class="media-mosaic">
@@ -119,7 +132,7 @@
                             <div class="contribution-card">
                                 <span>Adaptation</span>
                                 <strong>Runtime replanning</strong>
-                                <p>Runtime adaptation service: robot teams repair missions after failures, new tasks, or changing conditions.</p>
+                                <p>Runtime adaptation service: robot teams repair task assignments after failures, new tasks, or changing conditions.</p>
                                 <figure>
                                     <img src="images/replanning.gif" alt="Runtime replanning animation">
     <!--                                <figcaption>Replanning</figcaption>-->
@@ -128,8 +141,8 @@
 
                             <div class="contribution-card is-safety">
                                 <span>Safety</span>
-                                <strong>Control Lyapunov / Barrier Functions</strong>
-                                <p>Safety contract layer: local control constraints keep collective adaptation within safe boundaries.</p>
+                                <strong>CLF/CBF safety filter</strong>
+                                <p>Distributed safety filter: local and pairwise CLF/CBF constraints refine nominal aggregate commands before actuation.</p>
                                 <figure>
                                     <img src="images/drones_avoiding_formation.png" alt="Drones avoiding an obstacle while preserving formation">
     <!--                                <figcaption>Safety</figcaption>-->
@@ -143,44 +156,44 @@
                 <div class="column is-roadmap reveal delay-3">
                     <div class="section">
                         <h3>Research Direction</h3>
-                        <p>The contributions in the middle column are not isolated results: they expose services that should be orchestrated by a common collective runtime.</p>
+                        <p>The next step is to turn field-based mechanisms into an execution environment for collective processes running over shared devices.</p>
                         <ul>
-                            <li><strong>Process abstraction:</strong> define collective processes with scope, lifecycle, ownership, and interaction rules.</li>
-                            <li><strong>Runtime substrate:</strong> reuse programming, coordination, monitoring, adaptation, and safety as system services.</li>
-                            <li><strong>Governance model:</strong> decide who can start, stop, signal, compose, or constrain collective processes.</li>
-                            <li><strong>Validation path:</strong> stress the runtime on robot teams and smart environments under failures and mobility.</li>
+                            <li><strong>Collective processes:</strong> define scope, lifecycle, ownership, and membership across space and time.</li>
+                            <li><strong>Reusable services:</strong> integrate coordination, monitoring, replanning, resource flows, and safety filters.</li>
+                            <li><strong>Control and access:</strong> manage permissions, signals, communication, and conflicts among overlapping processes.</li>
+                            <li><strong>Experimental grounding:</strong> validate on robot teams, smart spaces, and disturbed environments.</li>
                         </ul>
                     </div>
 
                     <div class="roadmap is-service-map">
                         <div>
-                            <span>From</span>
-                            <p>Single aggregate programs</p>
+                            <span>Programs</span>
+                            <p>Aggregate code running on many devices</p>
                         </div>
                         <div>
-                            <span>Through</span>
-                            <p>Managed collective processes</p>
+                            <span>Processes</span>
+                            <p>Multiple collective activities with scope and lifecycle</p>
                         </div>
                         <div>
-                            <span>To</span>
-                            <p>Collective applications as system services</p>
+                            <span>Runtime</span>
+                            <p>A COS coordinating services, resources, and constraints</p>
                         </div>
                     </div>
 
                     <div class="challenge-panel">
-                        <span>Runtime Questions</span>
-                        <p>When several collective processes share the same devices, the runtime must govern <strong>membership</strong>, <strong>resources</strong>, <strong>signals</strong>, and <strong>safety constraints</strong>.</p>
+                        <span>Missing COS Layer</span>
+                        <p>The key research problem is to lift OS concepts to collective processes distributed over space and time.</p>
                         <div class="tag-row">
-                            <span>who owns it?</span>
-                            <span>who joins?</span>
-                            <span>who signals?</span>
-                            <span>who gets resources?</span>
+                            <span>lifecycle</span>
+                            <span>permissions</span>
+                            <span>signals</span>
+                            <span>resource management</span>
                         </div>
                     </div>
 
                     <div class="summary-box reveal delay-4">
                         <h3>Takeaway</h3>
-                        <p>The thesis goal is a <strong>Collective Operating System</strong>: a runtime that turns field-based algorithms into deployable, observable, governable, and safe collective applications.</p>
+                        <p>The thesis goal is a <strong>Collective Operating System</strong>: a runtime that turns field-based algorithms and safety filters into deployable, observable, governable collective applications.</p>
                     </div>
                 </div>
             </div>
