@@ -17,7 +17,7 @@ const path = require('path');
 
     const page = await browser.newPage();
 
-    // Set 1920x1080 resolution with a higher scale factor for crisper text/images in PDF
+    // Use the same viewport as the target poster page.
     await page.setViewport({
         width: 1920,
         height: 1080,
@@ -29,8 +29,36 @@ const path = require('path');
     // networkidle0 ensures all fonts, SVGs, and images are fully downloaded and rendered
     await page.goto(filePath, { waitUntil: 'networkidle0' });
 
-    // Explicitly emulate print media to trigger our @media print CSS rules
-    await page.emulateMediaType('print');
+    // Wait for web fonts before measuring the poster.
+    await page.evaluateHandle('document.fonts.ready');
+
+    // Keep the PDF 16:9, but scale the rendered poster down if its content
+    // overflows 1920x1080. This avoids clipping while preserving the target page size.
+    await page.evaluate(() => {
+        const targetWidth = 1920;
+        const targetHeight = 1080;
+        const poster = document.querySelector('.poster') || document.body;
+        const rect = poster.getBoundingClientRect();
+        const contentWidth = Math.max(rect.width, poster.scrollWidth, document.documentElement.scrollWidth);
+        const contentHeight = Math.max(rect.height, poster.scrollHeight, document.documentElement.scrollHeight);
+        const scale = Math.min(targetWidth / contentWidth, targetHeight / contentHeight, 1);
+
+        document.documentElement.style.width = `${targetWidth}px`;
+        document.documentElement.style.height = `${targetHeight}px`;
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.width = `${targetWidth}px`;
+        document.body.style.height = `${targetHeight}px`;
+        document.body.style.margin = '0';
+        document.body.style.overflow = 'hidden';
+
+        poster.style.transformOrigin = 'top left';
+        poster.style.transform = `scale(${scale})`;
+        poster.style.width = `${contentWidth}px`;
+        poster.style.height = `${contentHeight}px`;
+    });
+
+    // Use screen media for the PDF so the local browser view and PDF render match.
+    await page.emulateMediaType('screen');
 
     // Generate the PDF
     await page.pdf({
@@ -39,7 +67,9 @@ const path = require('path');
         height: '1080px',
         printBackground: true, // Force background colors and gradients to render
         margin: { top: 0, right: 0, bottom: 0, left: 0 }, // CRUCIAL: Remove default browser print margins
-        pageRanges: '1'
+        pageRanges: '1',
+        preferCSSPageSize: false,
+        scale: 1
     });
 
     await browser.close();
