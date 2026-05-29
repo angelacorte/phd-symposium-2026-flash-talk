@@ -21,34 +21,34 @@
     --font-display: 'Archivo', sans-serif;
     --font-body: 'Satoshi', sans-serif;
 
-    --title-size: clamp(1.55rem, 4.45cqmin, 2.55rem);
-    --subtitle-size: clamp(0.74rem, 1.6cqmin, 1rem);
-    --h3-size: clamp(1.04rem, 2.75cqmin, 1.58rem);
-    --body-size: clamp(0.66rem, 1.48cqmin, 0.92rem);
-    --small-size: clamp(0.52rem, 1.08cqmin, 0.7rem);
+    --title-size: clamp(1.72rem, 4.85cqmin, 2.78rem);
+    --subtitle-size: clamp(0.82rem, 1.78cqmin, 1.1rem);
+    --h3-size: clamp(1.15rem, 3.02cqmin, 1.72rem);
+    --body-size: clamp(0.73rem, 1.62cqmin, 1rem);
+    --small-size: clamp(0.58rem, 1.2cqmin, 0.78rem);
 
     /* Shared card typography */
-    --card-label-size: clamp(0.56rem, 1.24cqmin, 0.8rem);
-    --card-title-size: clamp(0.64rem, 1.38cqmin, 0.9rem);
-    --card-body-size: clamp(0.62rem, 1.28cqmin, 0.84rem);
+    --card-label-size: clamp(0.62rem, 1.36cqmin, 0.88rem);
+    --card-title-size: clamp(0.72rem, 1.54cqmin, 1rem);
+    --card-body-size: clamp(0.69rem, 1.42cqmin, 0.93rem);
     --card-body-line-height: 1.2;
 
     /* Side columns typography */
     --side-body-size: var(--card-body-size);
     --side-body-line-height: 1.24;
-    --side-callout-size: clamp(0.62rem, 1.28cqmin, 0.84rem);
+    --side-callout-size: clamp(0.69rem, 1.42cqmin, 0.93rem);
     --side-callout-line-height: 1.22;
 
     /* Right column typography */
     --roadmap-label-size: var(--card-label-size);
-    --roadmap-body-size: clamp(0.62rem, 1.28cqmin, 0.84rem);
+    --roadmap-body-size: clamp(0.69rem, 1.42cqmin, 0.93rem);
     --roadmap-body-line-height: 1.2;
     --panel-title-size: var(--card-label-size);
-    --panel-body-size: clamp(0.62rem, 1.28cqmin, 0.84rem);
+    --panel-body-size: clamp(0.69rem, 1.42cqmin, 0.93rem);
     --panel-body-line-height: 1.22;
-    --tag-size: clamp(0.48rem, 0.96cqmin, 0.64rem);
-    --summary-title-size: clamp(0.68rem, 1.36cqmin, 0.9rem);
-    --summary-body-size: clamp(0.56rem, 1.06cqmin, 0.7rem);
+    --tag-size: clamp(0.54rem, 1.06cqmin, 0.72rem);
+    --summary-title-size: clamp(0.76rem, 1.5cqmin, 1rem);
+    --summary-body-size: clamp(0.62rem, 1.18cqmin, 0.78rem);
     --summary-body-line-height: 1.15;
 
     --slide-padding: clamp(0.9rem, 2.4cqmin, 1.65rem);
@@ -244,7 +244,7 @@ strong {
     align-content: start;
     display: grid;
     gap: var(--content-gap);
-    grid-template-rows: minmax(max-content, 1fr) minmax(0, 10fr);
+    grid-template-rows: minmax(max-content, 1fr) minmax(0, 13fr);
 }
 
 .column.is-roadmap {
@@ -580,11 +580,6 @@ strong {
     width: 100%;
 }
 
-.contribution-card > figure {
-    align-self: end;
-    height: 90%;
-}
-
 .contribution-card figure img {
     align-self: end;
     display: block;
@@ -645,6 +640,11 @@ strong {
     min-height: 0;
     overflow: hidden;
     padding: clamp(0.22rem, 0.46cqmin, 0.34rem);
+}
+
+.contribution-card > figure {
+    align-self: end;
+    height: 90%;
 }
 
 .media-mosaic img {
