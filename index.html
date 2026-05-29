@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="figure-flow">
-                        <figure>
+                        <figure class="is-many-devices">
                             <img src="images/uc-sven.svg" alt="Distributed devices around the world">
                             <figcaption>Many devices</figcaption>
                         </figure>
@@ -92,15 +92,6 @@
 
                     <div class="contribution-grid">
                         <div class="media-mosaic">
-<!--                            <div class="contribution-card">-->
-<!--                                <span>Programming</span>-->
-<!--                                <strong>Collektive</strong>-->
-<!--                                <p>Kotlin Multiplatform support for writing and deploying reusable aggregate programs across platforms.</p>-->
-<!--                                <figure>-->
-<!--                                    <img src="images/collektive-logo-white-no-background.svg">-->
-<!--                                </figure>-->
-<!--                            </div>-->
-
                             <div class="contribution-card">
                                 <span>Coordination</span>
                                 <strong>Self-stabilizing gossip</strong>
@@ -109,6 +100,7 @@
                                     <img src="images/gossip.gif" alt="Gossip convergence animation">
                                 </figure>
                             </div>
+
                             <div class="contribution-card">
                                 <span>Morphogenesis</span>
                                 <strong>FieldVMC</strong>
@@ -119,23 +111,22 @@
                                 </figure>
                             </div>
                         </div>
-<!--                        <div class="media-mosaic">-->
-                            <div class="contribution-card">
-                                <span>Monitoring</span>
-                                <strong>Field-Based Distributed Particle Filtering</strong>
-                                <p>Distributed monitoring service: observers fuse partial, noisy information into runtime estimates.</p>
-                                <div class="media-mosaic monitoring-strip">
-                                    <figure class="is-dpf">
-                                        <img src="images/dpf.gif" alt="Distributed particle filtering estimate with seven neighbors">
-                                    </figure>
-                                    <figure class="is-dpf">
-                                        <img src="images/three_zebras_by_number_of_neighbors.jpg" alt="Distributed particle filtering estimate with seven neighbors">
-                                    </figure>
-                                    <figure class="is-dpf">
-                                        <img src="images/sensors_zebras_movement.png">
-                                    </figure>
-                                </div>
-<!--                            </div>-->
+
+                        <div class="contribution-card">
+                            <span>Monitoring</span>
+                            <strong>Field-Based Distributed Particle Filtering</strong>
+                            <p>Distributed monitoring service: observers fuse partial, noisy information into runtime estimates.</p>
+                            <div class="media-mosaic monitoring-strip">
+                                <figure class="is-dpf">
+                                    <img src="images/dpf.gif" alt="Distributed particle filtering estimate with seven neighbors">
+                                </figure>
+                                <figure class="is-dpf">
+                                    <img src="images/three_zebras_by_number_of_neighbors.jpg" alt="Distributed particle filtering estimate with seven neighbors">
+                                </figure>
+                                <figure class="is-dpf">
+                                    <img src="images/sensors_zebras_movement.png">
+                                </figure>
+                            </div>
                         </div>
 
                         <div class="media-mosaic">
@@ -211,6 +202,35 @@
     </section>
 </div>
 <script>
+    const fitPoster = () => {
+        const slide = document.querySelector('.slide');
+        const poster = document.querySelector('.poster-container');
+        const content = document.querySelector('.poster-content');
+
+        if (!slide || !poster || !content) {
+            return;
+        }
+
+        poster.style.setProperty('--fit-scale', '1');
+
+        requestAnimationFrame(() => {
+            const availableWidth = slide.clientWidth;
+            const availableHeight = slide.clientHeight;
+            const neededWidth = Math.max(poster.scrollWidth, content.scrollWidth);
+            const neededHeight = Math.max(poster.scrollHeight, content.scrollHeight);
+            const columnFitScale = [...document.querySelectorAll('.column')]
+                .reduce((scale, column) => Math.min(scale, column.clientHeight / column.scrollHeight), 1);
+            const fitScale = Math.min(1, availableWidth / neededWidth, availableHeight / neededHeight, columnFitScale);
+            const safeScale = fitScale < 1 ? fitScale * 0.995 : 1;
+
+            poster.style.setProperty('--fit-scale', Math.max(0.86, safeScale).toFixed(3));
+        });
+    };
+
+    window.addEventListener('load', fitPoster);
+    window.addEventListener('resize', fitPoster);
+    document.fonts?.ready.then(fitPoster);
+
     document.querySelectorAll('video[data-start][data-end]').forEach((video) => {
         const start = Number(video.dataset.start);
         const end = Number(video.dataset.end);
