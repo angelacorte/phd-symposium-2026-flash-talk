@@ -21,34 +21,34 @@
     --font-display: 'Archivo', sans-serif;
     --font-body: 'Satoshi', sans-serif;
 
-    --title-size: clamp(1.72rem, 4.85cqmin, 2.78rem);
-    --subtitle-size: clamp(0.82rem, 1.78cqmin, 1.1rem);
-    --h3-size: clamp(1.15rem, 3.02cqmin, 1.72rem);
-    --body-size: clamp(0.73rem, 1.62cqmin, 1rem);
-    --small-size: clamp(0.58rem, 1.2cqmin, 0.78rem);
+    --title-size: clamp(1.78rem, 4.98cqmin, 2.84rem);
+    --subtitle-size: clamp(0.92rem, 1.98cqmin, 1.24rem);
+    --h3-size: clamp(1.3rem, 3.34cqmin, 1.94rem);
+    --body-size: clamp(0.82rem, 1.82cqmin, 1.14rem);
+    --small-size: clamp(0.66rem, 1.36cqmin, 0.9rem);
 
     /* Shared card typography */
-    --card-label-size: clamp(0.62rem, 1.36cqmin, 0.88rem);
-    --card-title-size: clamp(0.72rem, 1.54cqmin, 1rem);
-    --card-body-size: clamp(0.69rem, 1.42cqmin, 0.93rem);
+    --card-label-size: clamp(0.7rem, 1.54cqmin, 1rem);
+    --card-title-size: clamp(0.82rem, 1.76cqmin, 1.16rem);
+    --card-body-size: clamp(0.78rem, 1.62cqmin, 1.07rem);
     --card-body-line-height: 1.2;
 
     /* Side columns typography */
     --side-body-size: var(--card-body-size);
     --side-body-line-height: 1.24;
-    --side-callout-size: clamp(0.69rem, 1.42cqmin, 0.93rem);
+    --side-callout-size: clamp(0.78rem, 1.62cqmin, 1.07rem);
     --side-callout-line-height: 1.22;
 
     /* Right column typography */
     --roadmap-label-size: var(--card-label-size);
-    --roadmap-body-size: clamp(0.69rem, 1.42cqmin, 0.93rem);
+    --roadmap-body-size: clamp(0.78rem, 1.62cqmin, 1.07rem);
     --roadmap-body-line-height: 1.2;
     --panel-title-size: var(--card-label-size);
-    --panel-body-size: clamp(0.69rem, 1.42cqmin, 0.93rem);
+    --panel-body-size: clamp(0.78rem, 1.62cqmin, 1.07rem);
     --panel-body-line-height: 1.22;
-    --tag-size: clamp(0.54rem, 1.06cqmin, 0.72rem);
-    --summary-title-size: clamp(0.76rem, 1.5cqmin, 1rem);
-    --summary-body-size: clamp(0.62rem, 1.18cqmin, 0.78rem);
+    --tag-size: clamp(0.62rem, 1.2cqmin, 0.84rem);
+    --summary-title-size: clamp(0.88rem, 1.72cqmin, 1.16rem);
+    --summary-body-size: clamp(0.7rem, 1.34cqmin, 0.9rem);
     --summary-body-line-height: 1.15;
 
     --slide-padding: clamp(0.9rem, 2.4cqmin, 1.65rem);
@@ -155,7 +155,7 @@ strong {
     font-family: var(--font-display);
     font-size: var(--title-size);
     font-weight: 900;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     line-height: 1.02;
     text-transform: uppercase;
     white-space: nowrap;
@@ -221,6 +221,7 @@ strong {
     display: flex;
     flex-direction: column;
     gap: var(--content-gap);
+    height: 100%;
     justify-content: stretch;
     max-height: 100%;
     min-height: 0;
@@ -241,10 +242,10 @@ strong {
 }
 
 .column.is-building {
-    align-content: start;
+    align-content: stretch;
     display: grid;
     gap: var(--content-gap);
-    grid-template-rows: minmax(max-content, 1fr) minmax(0, 13fr);
+    grid-template-rows: auto minmax(0, 1fr);
 }
 
 .column.is-roadmap {
@@ -502,13 +503,14 @@ strong {
     padding: 0 0.2em;
 }
 
-/* Building Blocks */
+/* Contributions */
 .contribution-grid {
     align-self: stretch;
     display: grid;
     gap: clamp(0.36rem, 0.78cqmin, 0.52rem);
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, minmax(0, 1fr));
+    height: 100%;
     min-height: 0;
 }
 
@@ -786,6 +788,11 @@ strong {
     margin-top: 0.34rem;
 }
 
+.tag-row.is-vertical {
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
 .tag-row span {
     background: #ffffff;
     border-left: 3px solid var(--accent);
@@ -798,6 +805,10 @@ strong {
     line-height: 1;
     padding: 0.2rem 0.28rem;
     text-transform: uppercase;
+}
+
+.tag-row.is-vertical span {
+    align-self: flex-start;
 }
 
 .summary-box {
