@@ -38,7 +38,7 @@
                             <div class="figure-flow">
                                 <figure class="is-many-devices">
                                     <img src="images/uc-sven.svg" alt="Distributed devices around the world">
-                                    <figcaption>Robot team</figcaption>
+                                    <figcaption>Heterogeneous devices</figcaption>
                                 </figure>
                                 <div class="figure-transition" aria-hidden="true">
                                     <svg viewBox="0 0 36 24" role="presentation" focusable="false" aria-hidden="true">
@@ -52,15 +52,16 @@
                             </div>
                             <div class="challenge-card is-context">
                                 <span>Context</span>
-                                <p><strong>Collective Adaptive Systems</strong> are ensembles of sensors, robots, and services that cooperate while devices move, fail, and join at runtime.</p>
+                                <p><strong>Collective Adaptive Systems</strong> are large-scale collectives of sensors, robots,
+                                    and services that must stay adaptive while devices move, fail, and join at runtime.</p>
                             </div>
                             <div class="challenge-card is-sota">
                                 <span>State of the art</span>
-                                <p>Aggregate Computing offers reusable patterns for collective behavior, but most systems still run as isolated aggregate programs.</p>
+                                <p><strong>Macro-programming</strong> raises collective behavior above single-device logic; <strong>Aggregate Computing</strong> provides composable abstractions for expressing situated collective behavior.</p>
                             </div>
                             <div class="challenge-card is-gap">
                                 <span>Open gap</span>
-                                <p>Aggregate Computing typically runs one complex algorithm. The gap is a <strong>Collective Operating System</strong>: middleware between aggregate programs and devices.</p>
+                                <p>Aggregate Computing systems often remain isolated aggregate programs, while collective robotics needs runtime support to:</p>
                                 <ul>
                                     <li>add, remove, and manipulate collective processes at runtime;</li>
                                     <li>manage devices, users/groups, permissions, and signals;</li>
@@ -72,7 +73,8 @@
                     </div>
 
                     <div class="research-card">
-                        <p>Toward a <strong>Collective Operating System</strong>, macro-programming mechanisms for coordination, monitoring, adaptation, and safety become core runtime capabilities for collective robotic processes.</p>
+                        <span>Towards <i>Collective Operating System</i></span>
+                        <p>A middleware layer between aggregate programs and devices, where macro-programming mechanisms for consensus, monitoring, adaptation, and safety become reusable runtime capabilities.</p>
                     </div>
                 </div>
 
@@ -150,28 +152,13 @@
                 <div class="column is-roadmap reveal delay-3">
                     <div class="section">
                         <h3>Direction</h3>
-                        <p>Move from single aggregate programs to a <strong>Collective Operating System</strong>: a runtime layer for heterogeneous, distributed devices, including robot teams.</p>
-                        <ul>
-                            <li><strong>Collective processes:</strong> manage multiple aggregate programs across space and time.</li>
-                            <li><strong>Runtime services:</strong> expose coordination, monitoring, replanning, and resource management as COS capabilities.</li>
-                            <li><strong>Heterogeneous devices:</strong> abstract platforms, sensors, and actuators while preserving their capabilities and constraints.</li>
-                            <li><strong>Safety guarantees:</strong> integrate CLF/CBF constraints to support safe collective actuation.</li>
+                        <p>Missing: a runtime layer that composes multiple collective processes over heterogeneous, distributed devices.</p>
+                        <ul class="direction-card-list">
+                            <li><strong>Collective processes</strong><span>Manage multiple aggregate programs across space and time.</span></li>
+                            <li><strong>Runtime services</strong><span>Expose consensus, coordination, monitoring, replanning, and resource management as COS capabilities.</span></li>
+                            <li><strong>Heterogeneous devices</strong><span>Abstract platforms, sensors, and actuators while preserving capabilities and constraints.</span></li>
+                            <li><strong>Safety guarantees</strong><span>Integrate CLF/CBF constraints to support safe collective actuation.</span></li>
                         </ul>
-                    </div>
-
-                    <div class="roadmap is-service-map">
-                        <div>
-                            <span>Aggregate programs</span>
-                            <p>Collective behavior expressed over distributed devices</p>
-                        </div>
-                        <div>
-                            <span>Runtime services</span>
-                            <p>Coordination, monitoring, replanning, and resource flows</p>
-                        </div>
-                        <div>
-                            <span>Safe control</span>
-                            <p>Formal constraints refine commands before actuation</p>
-                        </div>
                     </div>
 
                     <div class="challenge-panel">
@@ -184,11 +171,6 @@
                             <span>autonomous vehicles</span>
                             <span>surveillance</span>
                         </div>
-                    </div>
-
-                    <div class="summary-box reveal delay-4">
-                        <h3>Expected Outcome</h3>
-                        <p>A <strong>Collective Operating System</strong> model and prototype for managing aggregate processes over heterogeneous, distributed devices.</p>
                     </div>
                 </div>
             </div>
