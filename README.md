@@ -5,7 +5,7 @@
 
 ## Abstract
 
-Collective robotics requires groups of heterogeneous devices to act as collective
+Collective robotics are groups of heterogeneous devices that act as collective
 systems while their environment, network, and mission conditions continuously
 change. This research explores macro-programming as a way to express and manage
 such collective behavior above the level of individual robots. Building on
