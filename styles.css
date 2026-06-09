@@ -22,33 +22,33 @@
     --font-body: 'Satoshi', sans-serif;
 
     --title-size: clamp(1.78rem, 4.98cqmin, 2.84rem);
-    --subtitle-size: clamp(0.92rem, 1.98cqmin, 1.24rem);
-    --h3-size: clamp(1.3rem, 3.34cqmin, 1.94rem);
-    --body-size: clamp(0.82rem, 1.82cqmin, 1.14rem);
-    --small-size: clamp(0.66rem, 1.36cqmin, 0.9rem);
+    --subtitle-size: clamp(1.196rem, 2.574cqmin, 1.612rem);
+    --h3-size: clamp(1.69rem, 4.342cqmin, 2.522rem);
+    --body-size: clamp(1.066rem, 2.366cqmin, 1.482rem);
+    --small-size: clamp(0.858rem, 1.768cqmin, 1.17rem);
 
     /* Shared card typography */
-    --card-label-size: clamp(0.7rem, 1.54cqmin, 1rem);
-    --card-title-size: clamp(0.82rem, 1.76cqmin, 1.16rem);
-    --card-body-size: clamp(0.78rem, 1.62cqmin, 1.07rem);
+    --card-label-size: clamp(0.91rem, 2.002cqmin, 1.3rem);
+    --card-title-size: clamp(1.066rem, 2.288cqmin, 1.508rem);
+    --card-body-size: clamp(1.014rem, 2.106cqmin, 1.391rem);
     --card-body-line-height: 1.2;
 
     /* Side columns typography */
     --side-body-size: var(--card-body-size);
     --side-body-line-height: 1.24;
-    --side-callout-size: clamp(0.78rem, 1.62cqmin, 1.07rem);
+    --side-callout-size: clamp(1.014rem, 2.106cqmin, 1.391rem);
     --side-callout-line-height: 1.22;
 
     /* Right column typography */
     --roadmap-label-size: var(--card-label-size);
-    --roadmap-body-size: clamp(0.78rem, 1.62cqmin, 1.07rem);
+    --roadmap-body-size: clamp(1.014rem, 2.106cqmin, 1.391rem);
     --roadmap-body-line-height: 1.2;
     --panel-title-size: var(--card-label-size);
-    --panel-body-size: clamp(0.78rem, 1.62cqmin, 1.07rem);
+    --panel-body-size: clamp(1.014rem, 2.106cqmin, 1.391rem);
     --panel-body-line-height: 1.22;
-    --tag-size: clamp(0.62rem, 1.2cqmin, 0.84rem);
-    --summary-title-size: clamp(0.88rem, 1.72cqmin, 1.16rem);
-    --summary-body-size: clamp(0.7rem, 1.34cqmin, 0.9rem);
+    --tag-size: clamp(0.806rem, 1.56cqmin, 1.092rem);
+    --summary-title-size: clamp(1.144rem, 2.236cqmin, 1.508rem);
+    --summary-body-size: clamp(0.91rem, 1.742cqmin, 1.17rem);
     --summary-body-line-height: 1.15;
 
     --slide-padding: clamp(0.9rem, 2.4cqmin, 1.65rem);
@@ -211,7 +211,7 @@ strong {
 .poster-content {
     display: grid;
     gap: var(--content-gap);
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr) minmax(0, 0.95fr);
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
     height: 100%;
     min-height: 0;
 }
@@ -596,7 +596,7 @@ strong {
 .concept-marker {
     background: var(--accent-dark);
     color: #ffffff;
-    font-size: 0.72em;
+    font-size: 0.936em;
     height: 1.34em;
     width: 1.34em;
 }
@@ -605,7 +605,7 @@ strong {
     background: rgba(38, 144, 231, 0.12);
     border: 1px solid rgba(30, 105, 190, 0.22);
     color: var(--accent-dark);
-    font-size: 0.68em;
+    font-size: 0.884em;
     height: 1.22em;
     margin-right: 0.12rem;
     width: 1.22em;
@@ -679,7 +679,7 @@ strong {
 
 .contribution-card > .media-mosaic {
     align-self: end;
-    height: 90%;
+    height: 100%;
 }
 
 .media-mosaic.monitoring-strip {
@@ -705,7 +705,7 @@ strong {
 
 .contribution-card > figure {
     align-self: end;
-    height: 90%;
+    height: 100%;
 }
 
 .media-mosaic img {
