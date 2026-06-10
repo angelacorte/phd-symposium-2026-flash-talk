@@ -52,29 +52,28 @@
                             </div>
                             <div class="challenge-card is-context">
                                 <span>Context</span>
-                                <p><strong>Collective Adaptive Systems</strong> are large-scale collectives of sensors, robots,
-                                    and services that must stay adaptive while devices move, fail, and join at runtime.</p>
+                                <p><strong>Collective Adaptive Systems</strong> are large-scale group of heterogeneous devices
+                                    and services that must stay adaptive while devices do things and the environment changes at runtime</p>
                                 <span><br></span>
                                 <p><strong>Macro-programming</strong> allows for programming at the collective level,
                                     abstracting away the individual node behavior specification.</p>
-                                    <i>Aggregate Computing</i> is a paradigm built on that abstraction,
-                                that emphasizes the use of local interactions and self-organization to achieve global objectives.</p>
+                                <br>
+                                <p><strong>Aggregate Computing</strong> is built on that abstraction,
+                                it emphasizes the use of local interactions and self-organization to achieve global objectives.</p>
                             </div>
                             <div class="challenge-card is-gap">
                                 <span>Open gap</span>
-                                <p><strong>Aggregate Computing</strong> systems often remain isolated aggregate programs,
-                                    while collective robotics needs runtime support to:</p>
+<!--                                <p>Collective of heterogeneous sensors with different goals in their neighbor-local view,-->
+<!--                                but with the same goal as a local view,-->
+<!--                                should be able to act like a single entity.</p>-->
+<!--                                <p>We should be able to interact with such systems in a "classic Operating System" fashion.</p>-->
+                                <p><strong>Aggregate Computing</strong> systems often remain isolated aggregate programs:</p>
                                 <ul>
-                                    <li>add, remove, and manipulate collective processes at runtime;</li>
-                                    <li>manage devices, users/groups, permissions, and signals;</li>
-                                    <li>support overlapping processes across space and time;</li>
-                                    <li>abstract heterogeneous devices while preserving their capabilities and constraints.</li>
+                                    <li>No support for preemption;</li>
+                                    <li>User permissions not defined.</li>
                                 </ul>
                                 <br>
-                                <span>Towards <i>Collective Operating System</i></span>
-                                <p>A middleware layer between aggregate programs and devices,
-                                    where macro-programming mechanisms for consensus,
-                                    monitoring, adaptation, and safety become reusable runtime capabilities.</p>
+                                <span>Towards <i>Collective Operating Systems</i></span>
                             </div>
                         </div>
                     </div>
@@ -89,29 +88,22 @@
                     <div class="contribution-grid">
                         <div class="media-mosaic">
                             <div class="contribution-card">
-                                <span>Consensus</span>
-                                <strong>Self-stabilizing gossip</strong>
-                                <p>Agreement over changing neighborhoods: stale contributions are pruned after failures and topology changes.</p>
+                                <div class="contribution-heading"><span>Consensus</span>: <strong>Self-stabilizing gossip</strong></div>
                                 <figure>
                                     <img src="images/gossip.gif" alt="Gossip convergence animation">
                                 </figure>
                             </div>
 
                             <div class="contribution-card">
-                                <span>Resource flows</span>
-                                <strong>FieldVMC</strong>
-                                <p>A first model of distributed resource management for adaptive collective robotics.</p>
+                                <div class="contribution-heading"><span>Resource Management</span>: <strong>FieldVMC</strong></div>
                                 <figure>
                                     <img src="images/oneroot.gif">
-    <!--                                <figcaption>Morphogenesis</figcaption>-->
                                 </figure>
                             </div>
                         </div>
 
                         <div class="contribution-card">
-                            <span>Monitoring</span>
-                            <strong>Field-Based Distributed Particle Filtering</strong>
-                            <p>Observers fuse partial, noisy information into runtime estimates of the environment and the collective.</p>
+                            <div class="contribution-heading"><span>Monitoring</span>: <strong>Field-Based Distributed Particle Filtering</strong></div>
                             <div class="media-mosaic monitoring-strip">
                                 <figure class="is-dpf">
                                     <img src="images/dpf.gif" alt="Distributed particle filtering estimate with seven neighbors">
@@ -127,22 +119,16 @@
 
                         <div class="media-mosaic">
                             <div class="contribution-card">
-                                <span>Adaptation</span>
-                                <strong>Runtime replanning</strong>
-                                <p>Robot teams repair task assignments after failures, new tasks, or changing conditions.</p>
+                                <div class="contribution-heading"><span>Adaptation</span>: <strong>Runtime replanning</strong></div>
                                 <figure>
                                     <img src="images/replanning.gif" alt="Runtime replanning animation">
-    <!--                                <figcaption>Replanning</figcaption>-->
                                 </figure>
                             </div>
 
                             <div class="contribution-card is-safety">
-                                <span>Safety</span>
-                                <strong>CLF/CBF safety filter</strong>
-                                <p>Current direction: embed CLF/CBF constraints in the aggregate-control loop for formal safety guarantees.</p>
+                                <div class="contribution-heading"><span>Safety</span>: <strong>Control Barrier Functions</strong></div>
                                 <figure>
                                     <img src="images/carol.gif" alt="Drones avoiding an obstacle while preserving formation">
-    <!--                                <figcaption>Safety</figcaption>-->
                                 </figure>
                             </div>
                         </div>
@@ -174,7 +160,7 @@
             const fitScale = Math.min(1, availableWidth / neededWidth, availableHeight / neededHeight, columnFitScale);
             const safeScale = fitScale < 1 ? fitScale * 0.995 : 1;
 
-            poster.style.setProperty('--fit-scale', Math.max(0.86, safeScale).toFixed(3));
+            poster.style.setProperty('--fit-scale', Math.max(0.78, safeScale).toFixed(3));
         });
     };
 
