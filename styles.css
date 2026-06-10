@@ -242,6 +242,9 @@ strong {
 }
 
 .column.is-building {
+    border-right: none;
+    padding-left: clamp(0.55rem, 1.3cqmin, 0.95rem);
+    padding-right: clamp(0.35rem, 0.9cqmin, 0.65rem);
     align-content: stretch;
     display: grid;
     gap: var(--content-gap);
