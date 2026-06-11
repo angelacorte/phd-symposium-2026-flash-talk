@@ -292,10 +292,9 @@ strong {
 
 .challenge-card-stack {
     display: flex;
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     flex-direction: column;
-    gap: clamp(0.36rem, 1.1cqmin, 0.82rem);
-    justify-content: space-between;
+    gap: clamp(2.7rem, 3.65cqmin, 3.18rem);
     min-height: 0;
 }
 
@@ -389,7 +388,7 @@ strong {
 
 .figure-flow {
     align-items: center;
-    align-self: start;
+    align-self: center;
     display: grid;
     gap: clamp(0.24rem, 0.72cqmin, 0.52rem);
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
